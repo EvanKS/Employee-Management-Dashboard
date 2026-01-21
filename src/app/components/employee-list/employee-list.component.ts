@@ -16,11 +16,11 @@ export class EmployeeListComponent {
   @Output() employeeSelected = new EventEmitter<Employee>();
 
   employees: Employee[] = [
-    new Employee(1, 'Alice Johnson', 'Frontend Dev', 'Engineering', 75000, 'assets/employees/alice.png'),
-    new Employee(2, 'Bob Check', 'Backend Lead', 'Engineering', 95000, 'assets/employees/bob.png'),
-    new Employee(3, 'Charlie Davis', 'Designer', 'Design', 68000, 'assets/employees/charlie.png'),
-    new Employee(4, 'Diana Prince', 'Product Manager', 'Product', 105000, 'assets/employees/diana.png'),
-    new Employee(5, 'Evan Smith', 'Intern', 'Engineering', 40000, 'assets/employees/evan.png')
+    new Employee(1, 'Alice Johnson', 'Frontend Dev', 'Engineering', 75000, 'assets/employees/alice.jpg'),
+    new Employee(2, 'Bob Check', 'Backend Lead', 'Engineering', 95000, 'assets/employees/bob.jpg'),
+    new Employee(3, 'Charlie Davis', 'Designer', 'Design', 68000, 'assets/employees/charlie.jpg'),
+    new Employee(4, 'Diana Prince', 'Product Manager', 'Product', 105000, 'assets/employees/diana.jpg'),
+    new Employee(5, 'Evan Smith', 'Intern', 'Engineering', 40000, 'assets/employees/evan.jpg')
   ];
 
   selectEmployee(employee: Employee) {

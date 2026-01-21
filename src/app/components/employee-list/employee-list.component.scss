@@ -5,13 +5,9 @@
 h2 {
     font-size: 2rem;
     font-weight: 400;
-    /* Slightly heavier for presence */
     margin-bottom: 24px;
     color: #1a237e;
-    /* Darker, more corporate blue */
     letter-spacing: 0.5px;
-
-    /* Section underline */
     position: relative;
     display: inline-block;
 
@@ -23,7 +19,6 @@ h2 {
         width: 40px;
         height: 3px;
         background-color: #ff4081;
-        /* distinct accent */
         border-radius: 2px;
     }
 }
@@ -32,36 +27,96 @@ h2 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
+    align-items: stretch;
+    /* Ensure all cards in a row are same height */
 }
 
 .employee-card {
     cursor: pointer;
     background: white;
     overflow: hidden;
-    /* clean corners */
-
-    /* Ensure composing with global .card-elevation handles shadow/transform */
-    /* We add specific border interaction */
+    height: 100%;
+    /* Fill the grid cell */
+    display: flex;
+    flex-direction: column;
     border: 1px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Smooth hover transition */
 
     &:hover {
-        border-color: #3f51b5;
-        /* Global class handles transform/shadow, but we can enforce if needed */
+        transform: translateY(-5px);
+        /* Lift upward */
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+        /* Blue-tinted shadow */
+        border-color: #BFDBFE;
+        /* Light Blue Border */
+    }
+
+    mat-card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 12px;
+
+        /* Override default material header layout if needed */
+        ::ng-deep .mat-mdc-card-header-text {
+            margin: 0;
+            /* Remove default margin */
+        }
     }
 }
 
 .employee-avatar {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd;
+    border: 2px solid #e0e0e0;
 }
 
-.dept {
+.header-text {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #666;
-    margin-top: 10px;
+    flex-direction: column;
+    justify-content: center;
+
+    mat-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: #333;
+    }
+
+    mat-card-subtitle {
+        font-size: 0.9rem;
+        color: #666;
+    }
+}
+
+mat-card-content {
+    flex-grow: 1;
+    /* Pushes content to fill space if needed */
+    padding-top: 8px;
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #555;
+        margin: 8px 0;
+        font-size: 0.95rem;
+
+        mat-icon {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            color: #3B82F6;
+            /* Blue Accent */
+        }
+    }
+
+    .salary {
+        font-weight: 500;
+        color: #2e7d32;
+        /* Green for finance/salary */
+    }
 }

@@ -4,17 +4,20 @@
         <mat-card *ngFor="let emp of employees" class="employee-card card-elevation" (click)="selectEmployee(emp)">
             <mat-card-header>
                 <img [src]="emp.imageUrl" [alt]="emp.name" class="employee-avatar">
-                <mat-card-title>{{ emp.name }}</mat-card-title>
-                <mat-card-subtitle>{{ emp.role }}</mat-card-subtitle>
+                <div class="header-text">
+                    <mat-card-title>{{ emp.name }}</mat-card-title>
+                    <mat-card-subtitle>{{ emp.role }}</mat-card-subtitle>
+                </div>
             </mat-card-header>
             <mat-card-content>
                 <p class="dept">
                     <mat-icon inline>business</mat-icon> {{ emp.department }}
                 </p>
+                <p class="salary">
+                    {{ emp.salary | currency:'INR':'symbol':'1.2-2' }}
+                </p>
             </mat-card-content>
-            <mat-card-actions align="end">
-                <button mat-button color="primary">View Details</button>
-            </mat-card-actions>
+            <!-- Details button removed as card click acts as selection, keeping UI clean -->
         </mat-card>
     </div>
 </div>

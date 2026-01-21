@@ -1,14 +1,14 @@
 .navbar {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 0 16px;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for depth */
+    padding: 0 24px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/navbar/navbar-bg.png');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #222;
+    /* Dark text for contrast */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo {
@@ -18,14 +18,53 @@
     align-items: center;
     gap: 8px;
     font-size: 1.2rem;
+    color: #2563EB;
+    /* Primary Blue Branding */
 }
 
 .spacer {
     flex: 1 1 auto;
 }
 
+/* Base style for nav buttons */
 .nav-btn {
     margin-left: 8px;
-    border-radius: 20px;
     font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* Specific style for "Home" (Inactive/Standard Link) */
+button.nav-btn:not([color="accent"]) {
+    color: #444;
+    background: transparent;
+
+    &:hover {
+        background-color: rgba(37, 99, 235, 0.05);
+        /* Very subtle blue tint */
+        color: #2563EB;
+        /* Primary blue text on hover */
+        border-radius: 50px;
+    }
+}
+
+/* Specific style for "Employees" (Active/Highlighted Pill) */
+/* Specific style for "Employees" (Active/Highlighted Pill) */
+/* Specific style for "Employees" (Active/Highlighted Pill) */
+button.nav-btn[color="accent"] {
+    background-color: #EFF6FF;
+    /* Light Blue Background */
+    color: #2563EB !important;
+    /* Primary Blue Text */
+    border-radius: 50px;
+    padding: 0 24px;
+    box-shadow: none;
+    font-weight: 600;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+
+    &:hover {
+        background-color: #DBEAFE;
+        /* Slightly darker light blue on hover */
+        box-shadow: none;
+    }
 }

@@ -19,8 +19,7 @@
             </div>
 
             <div class="info-item">
-                <mat-icon color="accent">attach_money</mat-icon>
-                <span class="salary">{{ employee.salary | currency:'USD' }}</span>
+                <span class="salary">{{ employee.salary | currency:'INR':'symbol':'1.2-2' }}</span>
             </div>
         </mat-card-content>
     </mat-card>
