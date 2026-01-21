@@ -1,0 +1,32 @@
+<div *ngIf="employee" class="detail-container">
+    <mat-card class="detail-card card-elevation">
+        <div class="header-bg"></div>
+        <mat-card-header>
+            <img [src]="employee.imageUrl" [alt]="employee.name" class="large-avatar">
+            <mat-card-title class="name">{{ employee.name }}</mat-card-title>
+            <mat-card-subtitle class="role">{{ employee.role }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="content">
+            <div class="info-item">
+                <mat-icon color="primary">badge</mat-icon>
+                <span>ID: {{ employee.employeeId }}</span>
+            </div>
+
+            <div class="info-item">
+                <mat-icon color="primary">business</mat-icon>
+                <span>{{ employee.department }}</span>
+            </div>
+
+            <div class="info-item">
+                <mat-icon color="accent">attach_money</mat-icon>
+                <span class="salary">{{ employee.salary | currency:'USD' }}</span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div *ngIf="!employee" class="placeholder">
+    <mat-icon class="placeholder-icon">touch_app</mat-icon>
+    <p>Select an employee to view details</p>
+</div>

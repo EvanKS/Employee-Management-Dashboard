@@ -1,0 +1,67 @@
+.list-container {
+    padding: 20px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    /* Slightly heavier for presence */
+    margin-bottom: 24px;
+    color: #1a237e;
+    /* Darker, more corporate blue */
+    letter-spacing: 0.5px;
+
+    /* Section underline */
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 40px;
+        height: 3px;
+        background-color: #ff4081;
+        /* distinct accent */
+        border-radius: 2px;
+    }
+}
+
+.employee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.employee-card {
+    cursor: pointer;
+    background: white;
+    overflow: hidden;
+    /* clean corners */
+
+    /* Ensure composing with global .card-elevation handles shadow/transform */
+    /* We add specific border interaction */
+    border: 1px solid transparent;
+
+    &:hover {
+        border-color: #3f51b5;
+        /* Global class handles transform/shadow, but we can enforce if needed */
+    }
+}
+
+.employee-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.dept {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #666;
+    margin-top: 10px;
+}

@@ -1,0 +1,14 @@
+.main-content {
+    padding-top: 32px;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    @media (min-width: 960px) {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+}

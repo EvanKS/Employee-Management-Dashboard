@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="container main-content">
+  <div class="layout-grid">
+    <div class="list-area">
+      <app-employee-list (employeeSelected)="onEmployeeSelected($event)"></app-employee-list>
+    </div>
+    <div class="detail-area">
+      <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+    </div>
+  </div>
+</div>

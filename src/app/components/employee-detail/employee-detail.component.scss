@@ -1,0 +1,95 @@
+.detail-container {
+    position: sticky;
+    top: 90px;
+    animation: fadeIn 0.3s ease;
+}
+
+.detail-card {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.header-bg {
+    height: 80px;
+    /* Professional corporate gradient matching the theme */
+    background: linear-gradient(135deg, #3f51b5, #1a237e);
+    margin: -16px -16px 0 -16px;
+}
+
+.large-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    margin-top: -60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    /* Ensure it behaves like a block for margin */
+    background: white;
+    /* fallback */
+}
+
+.name {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.role {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.content {
+    padding-top: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    color: #444;
+
+    mat-icon {
+        transform: scale(1.2);
+    }
+}
+
+.salary {
+    font-weight: 700;
+    color: #2e7d32;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: #999;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    margin-top: 20px;
+
+    .placeholder-icon {
+        font-size: 4rem;
+        width: 4rem;
+        height: 4rem;
+        margin-bottom: 16px;
+        opacity: 0.5;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,20 @@
+<div class="list-container">
+    <h2>Our Team</h2>
+    <div class="employee-grid">
+        <mat-card *ngFor="let emp of employees" class="employee-card card-elevation" (click)="selectEmployee(emp)">
+            <mat-card-header>
+                <img [src]="emp.imageUrl" [alt]="emp.name" class="employee-avatar">
+                <mat-card-title>{{ emp.name }}</mat-card-title>
+                <mat-card-subtitle>{{ emp.role }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="dept">
+                    <mat-icon inline>business</mat-icon> {{ emp.department }}
+                </p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-button color="primary">View Details</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
