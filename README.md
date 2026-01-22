@@ -32,14 +32,14 @@ The design is inspired by modern **job portals and HR management systems**, ensu
 ---
 
 ##  Application Features
-- 📋 Employee list displayed using reusable cards
-- 👤 Employee detail view shown on selecting an employee
-- 🖼️ Real stock images for employee profiles
-- 🎨 Clean blue-themed dashboard inspired by job portals
-- 💱 Salary displayed in **Indian Rupees (₹)**
-- ✨ Smooth hover and interaction effects
-- 🧭 Navigation bar with active tab highlighting
-- 📱 Responsive and professional UI design
+- Employee list displayed using reusable cards
+- Employee detail view shown on selecting an employee
+- Real stock images for employee profiles
+- Clean blue-themed dashboard inspired by job portals
+- Salary displayed in **Indian Rupees (₹)**
+- Smooth hover and interaction effects
+- Navigation bar with active tab highlighting
+- Responsive and professional UI design
 
 ---
 
