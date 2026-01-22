@@ -83,26 +83,31 @@ It is suitable for **academic submission, practical exams, and portfolio showcas
 ---
 
 
-## Development server
+## Prerequisites
+- Node.js (v16 or later)
+- Angular CLI
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Install Angular CLI:
+npm install -g @angular/cli
 
-## Code scaffolding
+## How to Run the Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository
+git clone <repository-url>
 
-## Build
+2. Navigate to the project folder
+cd <project-folder-name>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Install dependencies
+npm install
 
-## Running unit tests
+4. Start the development server
+ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. Open in browser
+http://localhost:4200
 
-## Running end-to-end tests
+The application will automatically reload when you make changes.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Build (Optional)
+ng build
