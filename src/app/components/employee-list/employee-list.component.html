@@ -1,23 +1,129 @@
 <div class="list-container">
-    <h2>Our Team</h2>
-    <div class="employee-grid">
-        <mat-card *ngFor="let emp of employees" class="employee-card card-elevation" (click)="selectEmployee(emp)">
-            <mat-card-header>
-                <img [src]="emp.imageUrl" [alt]="emp.name" class="employee-avatar">
-                <div class="header-text">
-                    <mat-card-title>{{ emp.name }}</mat-card-title>
-                    <mat-card-subtitle>{{ emp.role }}</mat-card-subtitle>
-                </div>
-            </mat-card-header>
-            <mat-card-content>
-                <p class="dept">
-                    <mat-icon inline>business</mat-icon> {{ emp.department }}
-                </p>
-                <p class="salary">
-                    {{ emp.salary | currency:'INR':'symbol':'1.2-2' }}
-                </p>
-            </mat-card-content>
-            <!-- Details button removed as card click acts as selection, keeping UI clean -->
-        </mat-card>
+  <!-- Header -->
+  <div class="list-header">
+    <h2>Employee Directory</h2>
+    <button mat-raised-button color="primary" routerLink="/add-employee" class="add-btn">
+      <mat-icon>person_add</mat-icon>
+      Add Employee
+    </button>
+  </div>
+
+  <!-- Filters Row -->
+  <mat-card class="filter-card">
+    <div class="filters">
+      <!-- Search Bar -->
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search employees</mat-label>
+        <input matInput
+               [(ngModel)]="searchText"
+               (ngModelChange)="applySearch()"
+               placeholder="Search by name, email, role...">
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+
+      <!-- Department Filter -->
+      <mat-form-field appearance="outline" class="dept-filter">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="selectedDepartment" (selectionChange)="filterByDepartment()">
+          <mat-option *ngFor="let dept of departments" [value]="dept">
+            {{ dept }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+  </mat-card>
+
+  <!-- Employee Data Table -->
+  <mat-card class="table-card">
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" matSort class="employee-table">
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let employee"> {{ employee.id }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let employee" class="name-cell">
+            <strong>{{ employee.name }}</strong>
+          </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let employee"> {{ employee.email }} </td>
+        </ng-container>
+
+        <!-- Department Column -->
+        <ng-container matColumnDef="department">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Department </th>
+          <td mat-cell *matCellDef="let employee">
+            <span class="dept-badge">{{ employee.department }}</span>
+          </td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+          <td mat-cell *matCellDef="let employee"> {{ employee.role }} </td>
+        </ng-container>
+
+        <!-- Salary Column -->
+        <ng-container matColumnDef="salary">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary </th>
+          <td mat-cell *matCellDef="let employee" class="salary-cell">
+            {{ employee.salary | currency:'INR':'symbol':'1.0-0' }}
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let employee" class="actions-cell">
+            <button mat-icon-button color="primary"
+                    (click)="viewEmployee(employee.id)"
+                    matTooltip="View Details">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="accent"
+                    (click)="editEmployee(employee.id)"
+                    matTooltip="Edit Employee">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn"
+                    (click)="deleteEmployee(employee.id, employee.name)"
+                    matTooltip="Delete Employee">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Table header and row definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            [appHighlightSalary]="row.salary"></tr>
+
+        <!-- No data row -->
+        <tr class="mat-row no-data-row" *matNoDataRow>
+          <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+            <div class="no-data">
+              <mat-icon>search_off</mat-icon>
+              <p>No employees found matching "{{ searchText }}"</p>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]"
+                   showFirstLastButtons
+                   aria-label="Select page of employees">
+    </mat-paginator>
+  </mat-card>
 </div>

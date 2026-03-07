@@ -1,0 +1,94 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "department": "IT",
+      "role": "Developer",
+      "salary": 60000,
+      "joiningDate": "2023-01-12"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "department": "HR",
+      "role": "HR Manager",
+      "salary": 85000,
+      "joiningDate": "2022-06-15"
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "department": "Engineering",
+      "role": "Frontend Developer",
+      "salary": 75000,
+      "joiningDate": "2023-03-20"
+    },
+    {
+      "id": 4,
+      "name": "Bob Williams",
+      "email": "bob@example.com",
+      "department": "Engineering",
+      "role": "Backend Lead",
+      "salary": 95000,
+      "joiningDate": "2021-11-01"
+    },
+    {
+      "id": 5,
+      "name": "Charlie Davis",
+      "email": "charlie@example.com",
+      "department": "Design",
+      "role": "UI/UX Designer",
+      "salary": 68000,
+      "joiningDate": "2023-08-10"
+    },
+    {
+      "id": 6,
+      "name": "Diana Prince",
+      "email": "diana@example.com",
+      "department": "Product",
+      "role": "Product Manager",
+      "salary": 105000,
+      "joiningDate": "2021-02-28"
+    },
+    {
+      "id": 7,
+      "name": "Evan Kumar",
+      "email": "evan@example.com",
+      "department": "IT",
+      "role": "DevOps Engineer",
+      "salary": 82000,
+      "joiningDate": "2024-01-05"
+    },
+    {
+      "id": 8,
+      "name": "Fiona Chen",
+      "email": "fiona@example.com",
+      "department": "Marketing",
+      "role": "Marketing Lead",
+      "salary": 72000,
+      "joiningDate": "2023-05-18"
+    },
+    {
+      "name": "BRILLS",
+      "email": "brills@111",
+      "department": "Engineering",
+      "role": "89087",
+      "salary": 2020222,
+      "joiningDate": "2026-03-18",
+      "id": 9
+    },
+    {
+      "name": "Jacob",
+      "email": "jacob@gmail.com",
+      "department": "Design",
+      "role": "web",
+      "salary": 50000,
+      "joiningDate": "2026-03-06",
+      "id": 10
+    }
+  ]
+}

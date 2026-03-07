@@ -1,19 +1,13 @@
-export interface IEmployee {
-  employeeId: number;
+/**
+ * Employee interface - defines the shape of an Employee object.
+ * Used throughout the application for type safety.
+ */
+export interface Employee {
+  id: number;
   name: string;
+  email: string;
   role: string;
   department: string;
   salary: number;
-  imageUrl?: string;
-}
-
-export class Employee implements IEmployee {
-  constructor(
-    public employeeId: number,
-    public name: string,
-    public role: string,
-    public department: string,
-    public salary: number,
-    public imageUrl: string = 'assets/employees/default-avatar.png'
-  ) { }
+  joiningDate: string; // ISO date string format: 'YYYY-MM-DD'
 }

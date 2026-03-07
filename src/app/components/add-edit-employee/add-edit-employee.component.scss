@@ -1,0 +1,125 @@
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Back button */
+.back-btn {
+  margin-bottom: 16px;
+  color: #666;
+
+  mat-icon {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    color: #1565C0;
+  }
+}
+
+/* Form Card */
+.form-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  padding-bottom: 8px;
+
+  mat-card-header {
+    padding: 24px 24px 0;
+
+    .form-icon {
+      background: linear-gradient(135deg, #3f51b5, #1a237e);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    mat-card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #222;
+    }
+
+    mat-card-subtitle {
+      font-size: 0.95rem;
+      color: #888;
+    }
+  }
+}
+
+/* Form styles */
+.employee-form {
+  padding: 20px 24px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+
+  .half-width {
+    flex: 1;
+    margin-bottom: 8px;
+  }
+}
+
+/* Material form field customization */
+mat-form-field {
+  mat-icon[matPrefix] {
+    margin-right: 8px;
+    color: #999;
+  }
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+
+  .submit-btn {
+    border-radius: 10px;
+    padding: 6px 28px;
+    font-weight: 500;
+
+    mat-icon {
+      margin-right: 6px;
+    }
+  }
+
+  .cancel-btn {
+    border-radius: 10px;
+    padding: 6px 28px;
+    color: #666;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}

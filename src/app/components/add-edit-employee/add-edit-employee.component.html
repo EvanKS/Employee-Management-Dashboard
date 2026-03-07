@@ -1,0 +1,124 @@
+<div class="form-container">
+
+  <!-- Back button -->
+  <button mat-button class="back-btn" (click)="onCancel()">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Employees
+  </button>
+
+  <!-- Form Card -->
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="form-icon">{{ isEditMode ? 'edit' : 'person_add' }}</mat-icon>
+      <mat-card-title>{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}</mat-card-title>
+      <mat-card-subtitle>{{ isEditMode ? 'Update employee information' : 'Fill in the details to add a new employee' }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+
+        <!-- Name Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter full name">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="employeeForm.get('name')?.hasError('required')">
+            Name is required
+          </mat-error>
+          <mat-error *ngIf="employeeForm.get('name')?.hasError('minlength')">
+            Name must be at least 2 characters
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Email Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email Address</mat-label>
+          <input matInput formControlName="email" placeholder="Enter email address" type="email">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="employeeForm.get('email')?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Department and Role Row -->
+        <div class="form-row">
+          <!-- Department Select -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="department" placeholder="Select department">
+              <mat-option *ngFor="let dept of departments" [value]="dept">
+                {{ dept }}
+              </mat-option>
+            </mat-select>
+            <mat-icon matPrefix>business</mat-icon>
+            <mat-error *ngIf="employeeForm.get('department')?.hasError('required')">
+              Department is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Role Field -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Role</mat-label>
+            <input matInput formControlName="role" placeholder="Enter role">
+            <mat-icon matPrefix>work</mat-icon>
+            <mat-error *ngIf="employeeForm.get('role')?.hasError('required')">
+              Role is required
+            </mat-error>
+            <mat-error *ngIf="employeeForm.get('role')?.hasError('minlength')">
+              Role must be at least 2 characters
+            </mat-error>
+            <mat-error *ngIf="employeeForm.get('role')?.hasError('pattern')">
+              Role must contain only letters and spaces
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Salary and Joining Date Row -->
+        <div class="form-row">
+          <!-- Salary Field -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Salary (INR)</mat-label>
+            <input matInput formControlName="salary" placeholder="Enter salary" type="number">
+            <mat-icon matPrefix>currency_rupee</mat-icon>
+            <mat-error *ngIf="employeeForm.get('salary')?.hasError('required')">
+              Salary is required
+            </mat-error>
+            <mat-error *ngIf="employeeForm.get('salary')?.hasError('min')">
+              Salary must be a positive number
+            </mat-error>
+            <mat-error *ngIf="employeeForm.get('salary')?.hasError('pattern')">
+              Please enter a valid number
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Joining Date Picker -->
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Joining Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="joiningDate" placeholder="Select date">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-icon matPrefix>calendar_today</mat-icon>
+            <mat-error *ngIf="employeeForm.get('joiningDate')?.hasError('required')">
+              Joining date is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" class="submit-btn">
+            <mat-icon>{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+            {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
+          </button>
+          <button mat-stroked-button type="button" (click)="onCancel()" class="cancel-btn">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

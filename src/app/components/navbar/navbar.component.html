@@ -1,9 +1,28 @@
-<mat-toolbar class="navbar">
-  <span class="logo">
+<mat-toolbar class="navbar" color="primary">
+  <!-- Menu toggle button -->
+  <button mat-icon-button (click)="onMenuToggle()" aria-label="Toggle sidebar">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- App branding -->
+  <span class="logo" routerLink="/home">
     <mat-icon>dashboard</mat-icon>
     Employee Dashboard
   </span>
+
   <span class="spacer"></span>
-  <button mat-button class="nav-btn">Home</button>
-  <button mat-flat-button color="accent" class="nav-btn">Employees</button>
+
+  <!-- Navigation links in toolbar -->
+  <button mat-button routerLink="/home" routerLinkActive="active-toolbar-link" class="nav-btn">
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+  <button mat-button routerLink="/employees" routerLinkActive="active-toolbar-link" class="nav-btn">
+    <mat-icon>people</mat-icon>
+    Employees
+  </button>
+  <button mat-raised-button color="accent" routerLink="/add-employee" class="nav-btn add-btn">
+    <mat-icon>person_add</mat-icon>
+    Add Employee
+  </button>
 </mat-toolbar>

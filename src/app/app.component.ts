@@ -1,21 +1,39 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
-import { Employee } from './models/employee.model';
 
+/**
+ * AppComponent - Root component with sidenav layout.
+ * Provides the main application shell: Toolbar + Left Sidebar + Content Area.
+ */
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, EmployeeListComponent, EmployeeDetailComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    NavbarComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  selectedEmployee: Employee | null = null;
+  /** Controls whether the sidenav is open */
+  sidenavOpened = true;
 
-  onEmployeeSelected(employee: Employee) {
-    this.selectedEmployee = employee;
+  /** Toggle sidenav open/close */
+  toggleSidenav(): void {
+    this.sidenavOpened = !this.sidenavOpened;
   }
 }

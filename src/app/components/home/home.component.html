@@ -1,0 +1,84 @@
+<div class="home-container">
+  <!-- Welcome Header -->
+  <div class="welcome-section">
+    <h1>Employee Management Dashboard</h1>
+    <p class="subtitle">Manage your workforce efficiently with real-time insights</p>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-cards">
+    <mat-card class="summary-card card-blue">
+      <mat-card-content>
+        <div class="card-icon">
+          <mat-icon>people</mat-icon>
+        </div>
+        <div class="card-info">
+          <h3>{{ totalEmployees }}</h3>
+          <p>Total Employees</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card card-green">
+      <mat-card-content>
+        <div class="card-icon">
+          <mat-icon>business</mat-icon>
+        </div>
+        <div class="card-info">
+          <h3>{{ departments.length }}</h3>
+          <p>Departments</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card card-orange">
+      <mat-card-content>
+        <div class="card-icon">
+          <mat-icon>account_balance_wallet</mat-icon>
+        </div>
+        <div class="card-info">
+          <h3>{{ averageSalary | currency:'INR':'symbol':'1.0-0' }}</h3>
+          <p>Average Salary</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card card-purple">
+      <mat-card-content>
+        <div class="card-icon">
+          <mat-icon>person_add</mat-icon>
+        </div>
+        <div class="card-info">
+          <h3>{{ recentHires }}</h3>
+          <p>New Hires (12 mo)</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <h2>Quick Actions</h2>
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" routerLink="/employees">
+        <mat-icon>list</mat-icon>
+        View All Employees
+      </button>
+      <button mat-raised-button color="accent" routerLink="/add-employee">
+        <mat-icon>person_add</mat-icon>
+        Add New Employee
+      </button>
+    </div>
+  </div>
+
+  <!-- Department List -->
+  <div class="departments-section" *ngIf="departments.length > 0">
+    <h2>Active Departments</h2>
+    <div class="department-chips">
+      <mat-card *ngFor="let dept of departments" class="dept-chip">
+        <mat-icon>domain</mat-icon>
+        <span>{{ dept }}</span>
+      </mat-card>
+    </div>
+  </div>
+</div>

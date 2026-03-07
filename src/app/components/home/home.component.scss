@@ -1,0 +1,178 @@
+.home-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Welcome Section */
+.welcome-section {
+  margin-bottom: 32px;
+  text-align: center;
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 8px;
+
+    background: linear-gradient(135deg, #1a237e, #3f51b5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+  }
+}
+
+/* Summary Cards Grid */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px !important;
+  }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+  }
+
+  .card-info {
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: #222;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+    }
+  }
+}
+
+.card-blue .card-icon {
+  background: linear-gradient(135deg, #2196F3, #1565C0);
+}
+
+.card-green .card-icon {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+}
+
+.card-orange .card-icon {
+  background: linear-gradient(135deg, #FF9800, #E65100);
+}
+
+.card-purple .card-icon {
+  background: linear-gradient(135deg, #9C27B0, #6A1B9A);
+}
+
+/* Quick Actions */
+.quick-actions {
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    button {
+      border-radius: 12px;
+      padding: 8px 24px;
+      font-weight: 500;
+
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+/* Department Section */
+.departments-section {
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .department-chips {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .dept-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px !important;
+    border-radius: 50px !important;
+    background: #EFF6FF !important;
+    border: 1px solid #BFDBFE !important;
+    box-shadow: none !important;
+    cursor: default;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #DBEAFE !important;
+      transform: translateY(-2px);
+    }
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      color: #2563EB;
+    }
+
+    span {
+      font-weight: 500;
+      color: #1565C0;
+      font-size: 0.95rem;
+    }
+  }
+}

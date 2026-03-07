@@ -1,122 +1,178 @@
 .list-container {
-    padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    margin-bottom: 24px;
+/* Header with title and add button */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #1a237e;
-    letter-spacing: 0.5px;
-    position: relative;
-    display: inline-block;
+    margin: 0;
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 40px;
-        height: 3px;
-        background-color: #ff4081;
-        border-radius: 2px;
+    background: linear-gradient(135deg, #1a237e, #3f51b5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .add-btn {
+    border-radius: 12px;
+    padding: 6px 20px;
+    font-weight: 500;
+
+    mat-icon {
+      margin-right: 6px;
     }
+  }
 }
 
-.employee-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    align-items: stretch;
-    /* Ensure all cards in a row are same height */
+/* Filter Card */
+.filter-card {
+  border-radius: 12px !important;
+  margin-bottom: 20px;
+  padding: 16px 20px !important;
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
 }
 
-.employee-card {
-    cursor: pointer;
-    background: white;
-    overflow: hidden;
-    height: 100%;
-    /* Fill the grid cell */
-    display: flex;
-    flex-direction: column;
-    border: 1px solid transparent;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    /* Smooth hover transition */
+.filters {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .search-field {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .dept-filter {
+    min-width: 180px;
+  }
+
+  mat-form-field {
+    margin-bottom: -1.25em; // Offset Material form field bottom space
+  }
+}
+
+/* Table Card */
+.table-card {
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Table styles */
+.employee-table {
+  width: 100%;
+
+  /* Header */
+  th.mat-mdc-header-cell {
+    background: #f5f7fa;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  /* Rows */
+  tr.mat-mdc-row {
+    transition: background-color 0.2s ease;
 
     &:hover {
-        transform: translateY(-5px);
-        /* Lift upward */
-        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
-        /* Blue-tinted shadow */
-        border-color: #BFDBFE;
-        /* Light Blue Border */
+      background-color: #f0f4ff !important;
     }
+  }
 
-    mat-card-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 12px;
-
-        /* Override default material header layout if needed */
-        ::ng-deep .mat-mdc-card-header-text {
-            margin: 0;
-            /* Remove default margin */
-        }
-    }
+  td.mat-mdc-cell {
+    font-size: 0.92rem;
+    color: #444;
+    padding: 12px 16px;
+  }
 }
 
-.employee-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #e0e0e0;
+/* Name column */
+.name-cell strong {
+  color: #222;
 }
 
-.header-text {
-    display: flex;
+/* Department badge */
+.dept-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: #EFF6FF;
+  color: #1565C0;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border: 1px solid #BFDBFE;
+}
+
+/* Salary cell */
+.salary-cell {
+  font-weight: 600;
+  color: #2e7d32 !important;
+}
+
+/* Actions cell */
+.actions-cell {
+  white-space: nowrap;
+
+  button {
+    margin: 0 2px;
+  }
+}
+
+/* No data display */
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #999;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+/* Paginator styles */
+mat-paginator {
+  border-top: 1px solid #eee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .list-header {
     flex-direction: column;
-    justify-content: center;
+    gap: 12px;
+    align-items: flex-start;
+  }
 
-    mat-card-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 4px;
-        color: #333;
-    }
-
-    mat-card-subtitle {
-        font-size: 0.9rem;
-        color: #666;
-    }
-}
-
-mat-card-content {
-    flex-grow: 1;
-    /* Pushes content to fill space if needed */
-    padding-top: 8px;
-
-    p {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #555;
-        margin: 8px 0;
-        font-size: 0.95rem;
-
-        mat-icon {
-            font-size: 20px;
-            width: 20px;
-            height: 20px;
-            color: #3B82F6;
-            /* Blue Accent */
-        }
-    }
-
-    .salary {
-        font-weight: 500;
-        color: #2e7d32;
-        /* Green for finance/salary */
-    }
+  .filters {
+    flex-direction: column;
+  }
 }
